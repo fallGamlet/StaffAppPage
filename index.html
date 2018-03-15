@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<header>
+	<meta charset="utf-8">
+	<style>
+		.wrapper {
+			display: inline-block;
+			position: relative;
+			margin: 0 auto; 
+			vertical-align: middle;
+		}
+		
+		.fill-image {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		
+		#androidAppLink, 
+		#iosAppLink {
+			display: inline-block;
+			position: relative;
+			width: 128px; 
+			height: 128px; 
+			padding: 16px;
+			margin: 8px;
+			background: rgba(128, 128, 128, 0.05);
+		}
+		
+		#androidAppLink:hover, 
+		#iosAppLink:hover {
+			background: #ADD8E6;
+			border-radius: 4px;
+		}
+		
+	</style>
+</header>
+<body style="display:block; text-align:center; height:100%; vertical-align:middle;">
+	
+	<div class="wrapper">
+		<a id="androidAppLink" style="display:none;" href="https://play.google.com/store/apps/details?id=ru.hellix.fallgamlet.fitness">
+			<img class="fill-image" src="./android_app.png"/>
+		</a>
+		<a id="iosAppLink" style="display:none;" href="https://itunes.apple.com/ru/app/%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80-%D0%B4%D0%BB%D1%8F-1%D1%81-%D1%84%D0%B8%D1%82%D0%BD%D0%B5%D1%81-%D0%BA%D0%BB%D1%83%D0%B1/id1324230443">
+			<img class="fill-image" src="./ios_app.png"/>
+		</a>
+	</div>
+	
+	<script>
+		var androidLink = document.getElementById("androidAppLink");
+		var iosLink = document.getElementById("iosAppLink");
+		
+		var userAgent = (navigator.userAgent+"").toLowerCase();
+		var isIos = /ipad|iphone|ipod|ios/.test(userAgent);
+		var isAndroid = /android/.test(userAgent);
+		var isOther = !isIos && !isAndroid;
+		
+		var androidDisplay = isAndroid || isOther ? "inline-block": "none";
+		var iosDisplay = isIos || isOther ? "inline-block": "none";
+		
+		androidLink.style.display = androidDisplay;
+		iosLink.style.display = iosDisplay;
+	</script>
+	
+</body>
+</html>
