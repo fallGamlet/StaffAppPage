@@ -19,29 +19,22 @@
 			position: absolute;
 			left: 0;
 			right: 0;
-			top: 40%;
+			top: 45%;
 			width:100%;
 			vertical-align: middle;
 		}
 		
-		.fill-image {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
-		
 		#androidAppLink, 
 		#iosAppLink {
-			display: inline-block;
+			display: block;
 			position: relative;
-			width: 128px; 
-			height: 128px; 
-			padding: 16px;
-			margin: 8px;
-			border-radius: 4px;
+			width: 300px; 
+			height: 88px; 
+			padding: 0;
+			margin: 8px auto;
+			/*border-radius: 4px;
 			background: rgba(230, 230, 230, 0.5);
-			box-shadow: 0 0 5px 2px rgba(128, 128, 128, 0.5);
+			box-shadow: 0 0 5px 2px rgba(128, 128, 128, 0.5);*/
 		}
 		
 		#androidAppLink:hover, 
@@ -53,6 +46,12 @@
 			background: rgba(173, 216, 230, 0.7);
 		}
 		
+		.fill-image {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
 	</style>
 </head>
 <body padding:0; margin:0;>
@@ -64,10 +63,11 @@
 		<div class="wrapper">
 			
 			<a id="androidAppLink" style="display:none;" href="https://play.google.com/store/apps/details?id=ru.hellix.fallgamlet.fitness">
-				<img class="fill-image" src="./android_app.png"/>
+				<div class="fill-image" style='background: url("./android_app.png") no-repeat center top; background-size:contain;'></div>
 			</a>
+			
 			<a id="iosAppLink" style="display:none;" href="https://itunes.apple.com/ru/app/%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80-%D0%B4%D0%BB%D1%8F-1%D1%81-%D1%84%D0%B8%D1%82%D0%BD%D0%B5%D1%81-%D0%BA%D0%BB%D1%83%D0%B1/id1324230443">
-				<img class="fill-image" src="./ios_app.png"/>
+				<div class="fill-image" style='background: url("./ios_app.png") no-repeat center top; background-size:contain;'></div>
 			</a>
 		</div>
 	
@@ -82,8 +82,8 @@
 		var isAndroid = /android/.test(userAgent);
 		var isOther = !isIos && !isAndroid;
 		
-		var androidDisplay = isAndroid || isOther ? "inline-block": "none";
-		var iosDisplay = isIos || isOther ? "inline-block": "none";
+		var androidDisplay = isAndroid || isOther ? "block": "none";
+		var iosDisplay = isIos || isOther ? "block": "none";
 		
 		androidLink.style.display = androidDisplay;
 		iosLink.style.display = iosDisplay;
