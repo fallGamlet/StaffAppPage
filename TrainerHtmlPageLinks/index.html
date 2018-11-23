@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.background {
+			display:block; 
+			text-align:center; 
+			width:100%;
+			height:100%;
+			padding:0;
+			margin:0;
+			box-sizing: content-box;
+		}
+		
+		.wrapper {
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 45%;
+			width:100%;
+			vertical-align: middle;
+		}
+		
+		#androidAppLink, 
+		#iosAppLink {
+			display: block;
+			position: relative;
+			width: 300px; 
+			height: 88px; 
+			padding: 0;
+			margin: 8px auto;
+			/*border-radius: 4px;
+			background: rgba(230, 230, 230, 0.5);
+			box-shadow: 0 0 5px 2px rgba(128, 128, 128, 0.5);*/
+		}
+		
+		#androidAppLink:hover, 
+		#androidAppLink:focus,
+		#androidAppLink:active,
+		#iosAppLink:hover,
+		#iosAppLink:focus,
+		#iosAppLink:active {
+			background: rgba(173, 216, 230, 0.7);
+		}
+		
+		.fill-image {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body padding:0; margin:0;>
+
+	<div class="background">
+		
+		<div style='display:block; position:absolute; height:40%; top:0; left:0; right:0; background: url("./app_fitness_trainer.png") no-repeat center top; background-size:contain; padding:0; margin:0;'></div>
+	
+		<div class="wrapper">
+			
+			<a id="androidAppLink" style="display:none;" href="https://play.google.com/store/apps/details?id=ru.hellix.fallgamlet.fitness">
+				<div class="fill-image" style='background: url("./android_app.png") no-repeat center top; background-size:contain;'></div>
+			</a>
+			
+			<a id="iosAppLink" style="display:none;" href="https://itunes.apple.com/ru/app/%D1%82%D1%80%D0%B5%D0%BD%D0%B5%D1%80-%D0%B4%D0%BB%D1%8F-1%D1%81-%D1%84%D0%B8%D1%82%D0%BD%D0%B5%D1%81-%D0%BA%D0%BB%D1%83%D0%B1/id1324230443">
+				<div class="fill-image" style='background: url("./ios_app.png") no-repeat center top; background-size:contain;'></div>
+			</a>
+		</div>
+	
+	</div>
+	
+	<script>
+		var androidLink = document.getElementById("androidAppLink");
+		var iosLink = document.getElementById("iosAppLink");
+		
+		var userAgent = (navigator.userAgent+"").toLowerCase();
+		var isIos = /ipad|iphone|ipod|ios/.test(userAgent);
+		var isAndroid = /android/.test(userAgent);
+		var isOther = !isIos && !isAndroid;
+		
+		var androidDisplay = isAndroid || isOther ? "block": "none";
+		var iosDisplay = isIos || isOther ? "block": "none";
+		
+		androidLink.style.display = androidDisplay;
+		iosLink.style.display = iosDisplay;
+	</script>
+	
+</body>
+</html>
